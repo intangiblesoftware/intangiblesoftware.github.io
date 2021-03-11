@@ -1,6 +1,7 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #444;
+    background-color: #f4f7f4;
     max-width: 900px;   /* don't let the content get too wide */
     margin-left: auto;  /* center content when browser is too wide */
     margin-right: auto;
@@ -21,7 +22,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: #f4f7f4;
     padding: .5em;
     font-weight: 600;
     text-decoration: none;
@@ -46,30 +47,38 @@ header {
     width: 100%;
     margin-top: 0px;
     margin-bottom: .5em;
+    color: rgb(0, 59, 111);
 }
 
 .apps .container {
     text-align: center;
     max-width: 250px;
     min-width: 50px;
-    border: 1px solid lightgrey;
+    border: 1px solid #8b8c84;
+    border-radius: 10px;
     padding: .5em;
     margin: .5em;
     overflow: hidden;
+    background-color: white;
 }
 
 .apps img {
-    width: 100%;
+    width: 95%;
     height: auto;
-    border: 2px solid lightgrey;
+    border: 2px solid #8b8c84;
     border-radius: 20%;
+}
+
+.contact a {
+    color: rgb(0, 59, 111);
+    text-decoration: none;
 }
 
 /* And the footer */ 
 footer {
     text-align: center;
     background-color: rgb(0, 59, 111);
-    color: white;
+    color: #f4f7f4;
     padding: .25em 0em;
 }
 
