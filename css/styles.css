@@ -1,14 +1,10 @@
 body {
-    margin: 2em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #444;
-}
-
-/* Container for the logo. Margins center contents */
-.logo {
-    max-width: 900px;
-    margin-left: auto;
+    max-width: 900px;   /* don't let the content get too wide */
+    margin-left: auto;  /* center content when browser is too wide */
     margin-right: auto;
+    padding: 2em;       /* add some space around content */
 }
 
 /* Image inside logo container resize to fill container keeping aspect ratio */ 
@@ -21,14 +17,52 @@ body {
 nav {
     text-align: end;
     background-color: rgb(0, 59, 111);
-    padding: 1rem;
+    padding: 1em;
 }
 
 nav a {
     color: white;
-    padding: .5rem;
+    padding: .5em;
     font-weight: 600;
     text-decoration: none;
+}
+
+/* Header section - kind of a tag-line I guess. */
+header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Apps section - wanna put each app in its own little card and have them be all grid-like. */
+.apps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.apps h1 {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: .5em;
+}
+
+.apps .container {
+    text-align: center;
+    max-width: 250px;
+    min-width: 50px;
+    border: 1px solid lightgrey;
+    padding: .5em;
+    margin: .5em;
+    overflow: hidden;
+}
+
+.apps img {
+    width: 100%;
+    height: auto;
+    border: 2px solid lightgrey;
+    border-radius: 20%;
 }
 
 /* And the footer */ 
@@ -36,9 +70,9 @@ footer {
     text-align: center;
     background-color: rgb(0, 59, 111);
     color: white;
-    padding: .25rem 0rem;
+    padding: .25em 0em;
 }
 
 footer p {
-    font-size: .75em;
+    font-size: .75rem;
 }
