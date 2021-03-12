@@ -16,7 +16,7 @@ body {
 
 /* Big blue bar with white nav links in top right */ 
 nav {
-    text-align: end;
+    text-align: center;
     background-color: rgb(0, 59, 111);
     padding: 1em;
 }
@@ -44,6 +44,10 @@ header {
 }
 
 .apps h1 {
+    width: 100%;
+}
+
+.apps h2 {
     width: 100%;
     margin-top: 0px;
     margin-bottom: .5em;
