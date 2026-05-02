@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoenix TMB Training Plan — 16 Weeks</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2c2c2c;
+      background: #f7f5f0;
+    }
+
+    header {
+      background: #2d4a2d;
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #b8d4b8;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    header .subtitle span::before { content: "▸ "; opacity: 0.6; }
+
+    nav {
+      background: #3d5c3d;
+      padding: 0.6rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+    }
+    nav a {
+      color: #c8e0c8;
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      padding: 0.2rem 0;
+    }
+    nav a:hover { color: #fff; }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ---- Section headings ---- */
+    h2.section-heading {
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: #2d4a2d;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #c8d8c8;
+    }
+
+    /* ---- Info boxes ---- */
+    .info-box {
+      background: #fff;
+      border-left: 4px solid #2d4a2d;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .info-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #2d4a2d;
+      margin-bottom: 0.6rem;
+    }
+    .info-box p { font-size: 0.93rem; margin-bottom: 0.5rem; }
+    .info-box p:last-child { margin-bottom: 0; }
+    .info-box ul { padding-left: 1.2rem; font-size: 0.93rem; }
+    .info-box li { margin-bottom: 0.35rem; }
+
+    /* ---- Phase overview cards ---- */
+    .phase-overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .po-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.09);
+    }
+    .po-header {
+      padding: 0.7rem 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .po-card.p1 .po-header { background: #3a6080; }
+    .po-card.p2 .po-header { background: #7a6020; }
+    .po-card.p3 .po-header { background: #8a3a10; }
+    .po-card.p4 .po-header { background: #1a3a1a; }
+    .po-body {
+      background: #fff;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+    }
+    .po-body strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
+    .po-body .po-weeks {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .po-body .po-gain {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .p1 .po-gain { color: #3a6080; }
+    .p2 .po-gain { color: #7a6020; }
+    .p3 .po-gain { color: #8a3a10; }
+    .p4 .po-gain { color: #1a3a1a; }
+
+    /* ---- Phase blocks ---- */
+    .phase-block {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.09);
+      margin-bottom: 2.5rem;
+    }
+    .phase-block-header {
+      padding: 1.1rem 1.5rem;
+      color: #fff;
+    }
+    .phase-block.p1 .phase-block-header { background: #3a6080; }
+    .phase-block.p2 .phase-block-header { background: #7a6020; }
+    .phase-block.p3 .phase-block-header { background: #8a3a10; }
+    .phase-block.p4 .phase-block-header { background: #1a3a1a; }
+
+    .phase-block-header h2 {
+      font-size: 1.3rem;
+      font-weight: normal;
+      margin-bottom: 0.25rem;
+    }
+    .phase-block-header .phase-desc {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      opacity: 0.85;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.3rem;
+    }
+    .phase-goals {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 1rem 2.5rem;
+      flex-wrap: wrap;
+    }
+    .phase-goals span { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.85rem; }
+    .phase-goals span strong { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; display: block; color: #777; }
+
+    /* ---- Week cards ---- */
+    .weeks-grid {
+      background: #fff;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .week-card {
+      border: 1px solid #e4e8e4;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .week-card:last-child { margin-bottom: 0; }
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      background: #f4f7f4;
+      border-bottom: 1px solid #e4e8e4;
+    }
+    .week-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      min-width: 60px;
+    }
+    .p1 .week-num { color: #3a6080; }
+    .p2 .week-num { color: #7a6020; }
+    .p3 .week-num { color: #8a3a10; }
+    .p4 .week-num { color: #1a3a1a; }
+    .week-target {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #666;
+      margin-left: auto;
+    }
+    .week-target strong { color: #2d4a2d; }
+    .week-focus {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    .week-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 640px) {
+      .week-body { grid-template-columns: 1fr; }
+    }
+    .day-slot {
+      padding: 0.6rem 0.9rem;
+      border-right: 1px solid #eee;
+      font-size: 0.88rem;
+    }
+    .day-slot:last-child { border-right: none; }
+    .day-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #888;
+      margin-bottom: 0.25rem;
+    }
+    .day-trail { font-weight: bold; color: #2d4a2d; font-size: 0.9rem; }
+    .day-detail { font-size: 0.83rem; color: #555; font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: 0.1rem; }
+    .day-slot.opt { background: #fbfbfb; }
+    .day-slot.opt .day-label { color: #aaa; }
+
+    .week-note {
+      background: #fdf8f2;
+      border-top: 1px solid #eee;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: #6a4a00;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ---- Special call-out boxes ---- */
+    .callout {
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .callout.heat {
+      background: #fff8ee;
+      border: 1px solid #e8c87a;
+    }
+    .callout.heat h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a4f00;
+      margin-bottom: 0.5rem;
+    }
+    .callout.back-to-back {
+      background: #f0f4ff;
+      border: 1px solid #a0b0d0;
+    }
+    .callout.back-to-back h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #2a3a7a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- Summary table ---- */
+    table { width: 100%; border-collapse: collapse; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88rem; margin-bottom: 1.25rem; }
+    th { background: #e8ede8; color: #2d4a2d; text-align: left; padding: 0.5rem 0.75rem; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .p1-row td:first-child { border-left: 3px solid #3a6080; }
+    .p2-row td:first-child { border-left: 3px solid #7a6020; }
+    .p3-row td:first-child { border-left: 3px solid #8a3a10; }
+    .p4-row td:first-child { border-left: 3px solid #1a3a1a; }
+    td.gain-val { font-weight: 700; color: #2d4a2d; }
+
+    /* ---- Gear timeline ---- */
+    .gear-timeline {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .gear-header {
+      background: #4a6a4a;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .gear-timeline-body { padding: 1rem 1.5rem; }
+    .gear-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+    .gear-item:last-child { border-bottom: none; }
+    .gear-week {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      min-width: 70px;
+      color: #2d4a2d;
+    }
+
+    /* ---- Extending the plan ---- */
+    .extend-box {
+      background: #eef4ee;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.93rem;
+    }
+    .extend-box h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #2d4a2d;
+      margin-bottom: 0.75rem;
+    }
+    .extend-box ul { padding-left: 1.2rem; }
+    .extend-box li { margin-bottom: 0.4rem; }
+
+    .sources {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Phoenix TMB Training Plan</h1>
+  <p style="color:#b8d4b8; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:0.95rem; margin-top:0.4rem;">16-Week Progressive Hiking Program — Tour du Mont Blanc Preparation</p>
+  <div class="subtitle">
+    <span>Based on Phoenix-area trails</span>
+    <span>16 weeks / 4 phases</span>
+    <span>Target: ~32,800 ft total gain over 11 TMB stages</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#overview">Plan Overview</a>
+  <a href="#phase1">Phase 1: Foundation</a>
+  <a href="#phase2">Phase 2: Build</a>
+  <a href="#phase3">Phase 3: Intensity</a>
+  <a href="#phase4">Phase 4: Peak &amp; Taper</a>
+  <a href="#gear">Gear Timeline</a>
+  <a href="#extending">Extending the Plan</a>
+</nav>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <div class="info-box" id="overview" style="margin-top:0.5rem;">
+    <h3>How This Plan Works</h3>
+    <p>The TMB averages <strong>~3,000 ft of elevation gain per day for 11 consecutive days</strong>. Phoenix can replicate the gradient but not the altitude or duration. This plan builds toward that sustained effort by increasing weekly gain across four phases, introducing back-to-back hiking days, and progressively adding pack weight.</p>
+    <p>A <strong>typical training week</strong> includes two weekday hikes (Tuesday/Thursday suggested) and one longer weekend hike (Saturday), with an optional Sunday recovery hike that increases in importance as the plan progresses. Rest is as important as training — two full rest days per week minimum in Phases 1 and 2.</p>
+    <p>If this plan feels too easy in Phase 1, you can compress Phases 1–2 by skipping ahead or adding laps. If it feels too hard, repeat any week before moving forward.</p>
+  </div>
+
+  <div class="callout back-to-back">
+    <h3>Why Back-to-Back Days Matter</h3>
+    <p>The TMB's hardest challenge for most hikers isn't any single day — it's hiking on legs that are already tired from the previous day. Starting in Phase 2, this plan introduces Saturday/Sunday paired hikes. Sunday hikes are deliberately scheduled <em>after</em> a hard Saturday to teach your body to move on tired legs. By Phase 3 you should feel the difference in how quickly you recover.</p>
+  </div>
+
+  <!-- PHASE OVERVIEW -->
+  <h2 class="section-heading">Plan at a Glance</h2>
+  <div class="phase-overview">
+    <div class="po-card p1">
+      <div class="po-header">Phase 1 — Foundation</div>
+      <div class="po-body">
+        <strong>Getting Consistent</strong>
+        <div class="po-weeks">Weeks 1–4</div>
+        <div class="po-gain">2,000–3,500 ft/week</div>
+        <p>Build aerobic base, break in boots, establish trail habit. Easy to moderate trails only.</p>
+      </div>
+    </div>
+    <div class="po-card p2">
+      <div class="po-header">Phase 2 — Build</div>
+      <div class="po-body">
+        <strong>Introducing the Hard Trails</strong>
+        <div class="po-weeks">Weeks 5–8</div>
+        <div class="po-gain">4,000–6,000 ft/week</div>
+        <p>First Camelback, first Siphon Draw, first back-to-back weekend. Pack weight introduced.</p>
+      </div>
+    </div>
+    <div class="po-card p3">
+      <div class="po-header">Phase 3 — Intensity</div>
+      <div class="po-body">
+        <strong>Simulating TMB Conditions</strong>
+        <div class="po-weeks">Weeks 9–12</div>
+        <div class="po-gain">6,000–8,000 ft/week</div>
+        <p>Multi-summit days, regular back-to-backs, full pack weight. Gear fully dialed in.</p>
+      </div>
+    </div>
+    <div class="po-card p4">
+      <div class="po-header">Phase 4 — Peak &amp; Taper</div>
+      <div class="po-body">
+        <strong>Peak Then Rest</strong>
+        <div class="po-weeks">Weeks 13–16</div>
+        <div class="po-gain">Peak ~9,000 → taper to ~500 ft</div>
+        <p>Two peak weeks, then a deliberate 50% volume cut, then near-rest before departure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEKLY GAIN SUMMARY TABLE -->
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.08); overflow:hidden; margin-bottom:2.5rem;">
+    <div style="background:#4a6a4a; color:#fff; padding:0.75rem 1.5rem; font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Weekly Gain Targets — Full Plan</div>
+    <div style="padding:0.5rem 1rem;">
+      <table>
+        <thead><tr><th>Week</th><th>Phase</th><th>Target Gain</th><th>Key milestone</th></tr></thead>
+        <tbody>
+          <tr class="p1-row"><td>1</td><td>Foundation</td><td class="gain-val">~2,000 ft</td><td>First hike, boot break-in begins</td></tr>
+          <tr class="p1-row"><td>2</td><td>Foundation</td><td class="gain-val">~2,500 ft</td><td>Establish routine</td></tr>
+          <tr class="p1-row"><td>3</td><td>Foundation</td><td class="gain-val">~3,000 ft</td><td>First Tom's Thumb</td></tr>
+          <tr class="p1-row"><td>4</td><td>Foundation</td><td class="gain-val">~3,500 ft</td><td>First back-to-back taste (Sat+Sun)</td></tr>
+          <tr class="p2-row"><td>5</td><td>Build</td><td class="gain-val">~4,000 ft</td><td>First Camelback (Cholla)</td></tr>
+          <tr class="p2-row"><td>6</td><td>Build</td><td class="gain-val">~4,500 ft</td><td>First Echo Canyon; 10 lb pack introduced</td></tr>
+          <tr class="p2-row"><td>7</td><td>Build</td><td class="gain-val">~5,000 ft</td><td>First Piestewa Peak</td></tr>
+          <tr class="p2-row"><td>8</td><td>Build</td><td class="gain-val">~5,800 ft</td><td>First Siphon Draw → Flatiron; first true back-to-back weekend</td></tr>
+          <tr class="p3-row"><td>9</td><td>Intensity</td><td class="gain-val">~6,500 ft</td><td>First multi-summit day; full pack weight</td></tr>
+          <tr class="p3-row"><td>10</td><td>Intensity</td><td class="gain-val">~6,800 ft</td><td>2× Piestewa in a single session</td></tr>
+          <tr class="p3-row"><td>11</td><td>Intensity</td><td class="gain-val">~7,500 ft</td><td>First full back-to-back pair (Siphon Draw Sat + multi-trail Sun)</td></tr>
+          <tr class="p3-row"><td>12</td><td>Intensity</td><td class="gain-val">~8,000 ft</td><td>Camelback Cholla + Echo same day</td></tr>
+          <tr class="p4-row"><td>13</td><td>Peak</td><td class="gain-val">~7,500 ft</td><td>Full-pack long day; tired legs Sunday</td></tr>
+          <tr class="p4-row"><td>14</td><td>Peak</td><td class="gain-val">~9,000 ft</td><td>Highest volume week of the plan</td></tr>
+          <tr class="p4-row"><td>15</td><td>Taper</td><td class="gain-val">~3,500 ft</td><td>50% volume cut — trust the taper</td></tr>
+          <tr class="p4-row"><td>16</td><td>Taper</td><td class="gain-val">~500 ft</td><td>Easy walks only — arrive fresh</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block p1" id="phase1">
+    <div class="phase-block-header">
+      <h2>Phase 1: Foundation (Weeks 1–4)</h2>
+      <div class="phase-desc">
+        <span>Goal: 2,000–3,500 ft/week</span>
+        <span>3 hikes/week</span>
+        <span>Focus: Aerobic base, trail habit, boot break-in</span>
+      </div>
+    </div>
+    <div class="phase-goals">
+      <span><strong>Gear</strong> Break in hiking boots on every hike</span>
+      <span><strong>Poles</strong> Try hiking poles — decide if you'll use them on TMB</span>
+      <span><strong>Pack</strong> Day pack with water and lunch, no added weight yet</span>
+      <span><strong>Cross-training</strong> 2× cycling or swimming on off days is optional but valuable</span>
+    </div>
+    <div class="weeks-grid">
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 1</span>
+          <span class="week-focus">Getting started — just show up</span>
+          <span class="week-target">Target: <strong>~2,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">White Tank Waterfall Trail</div>
+            <div class="day-detail">2 mi RT · ~250 ft · Easy · ~1 hr</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Wind Cave Trail</div>
+            <div class="day-detail">3 mi RT · ~850 ft · Moderate · ~1.5 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend Long Hike</div>
+            <div class="day-trail">South Mountain — 6 mi section</div>
+            <div class="day-detail">6 mi · ~900 ft · Rolling · ~2.5 hrs</div>
+          </div>
+        </div>
+        <div class="week-note">Focus on consistent pace and staying comfortable. Note any hot spots for blisters — address them now, not at mile 50 of the TMB.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 2</span>
+          <span class="week-focus">Building routine</span>
+          <span class="week-target">Target: <strong>~2,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Wind Cave Trail</div>
+            <div class="day-detail">3 mi RT · ~850 ft · ~1.5 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Shaw Butte</div>
+            <div class="day-detail">4 mi RT · ~900 ft · Moderate · ~2 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend Long Hike</div>
+            <div class="day-trail">South Mountain — 8 mi section</div>
+            <div class="day-detail">8 mi · ~1,200 ft · Rolling · ~3.5 hrs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 3</span>
+          <span class="week-focus">First real climb</span>
+          <span class="week-target">Target: <strong>~3,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Shaw Butte</div>
+            <div class="day-detail">4 mi RT · ~900 ft · ~2 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Wind Cave Trail</div>
+            <div class="day-detail">3 mi RT · ~850 ft · Note improvement from Week 1</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend Long Hike</div>
+            <div class="day-trail">Tom's Thumb — first attempt</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft · ~2.5 hrs</div>
+          </div>
+        </div>
+        <div class="week-note">Tom's Thumb is your first true climbing trail. Take it easy — note how long it takes so you can measure improvement later.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 4</span>
+          <span class="week-focus">First back-to-back taste</span>
+          <span class="week-target">Target: <strong>~3,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Wind Cave Trail</div>
+            <div class="day-detail">3 mi RT · ~850 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Tom's Thumb</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: South Mountain 10 mi</div>
+            <div class="day-detail">Sun: Wind Cave or easy walk (2–3 mi) — tired legs intentional</div>
+          </div>
+        </div>
+        <div class="week-note">Pay attention to how Sunday feels after Saturday. This is the key sensation you'll train — recovery while still moving.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block p2" id="phase2">
+    <div class="phase-block-header">
+      <h2>Phase 2: Build (Weeks 5–8)</h2>
+      <div class="phase-desc">
+        <span>Goal: 4,000–6,000 ft/week</span>
+        <span>3–4 hikes/week</span>
+        <span>Focus: Steep trails, first back-to-back weekends, pack weight begins</span>
+      </div>
+    </div>
+    <div class="phase-goals">
+      <span><strong>Pack weight</strong> Add 10 lb starting Week 6. Use actual TMB pack if possible.</span>
+      <span><strong>Back-to-backs</strong> Sat+Sun pairs every weekend from Week 8 onward</span>
+      <span><strong>Nutrition</strong> Start practicing your TMB fueling strategy — what you'll eat and drink on long hike days</span>
+      <span><strong>Electrolytes</strong> Desert hiking depletes electrolytes faster — train with them now</span>
+    </div>
+    <div class="weeks-grid">
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 5</span>
+          <span class="week-focus">First Camelback</span>
+          <span class="week-target">Target: <strong>~4,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Sunrise Peak</div>
+            <div class="day-detail">3.8 mi RT · ~1,140 ft · ~2 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend Long Hike</div>
+            <div class="day-trail">Camelback — Cholla Trail</div>
+            <div class="day-detail">3 mi RT · ~1,350 ft · First Camelback · ~2.5 hrs</div>
+          </div>
+        </div>
+        <div class="week-note">Cholla before Echo Canyon — it's steep but slightly more gradual on the lower section. Note parking: arrive by 6:30 am on weekends.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 6</span>
+          <span class="week-focus">Echo Canyon + pack weight begins</span>
+          <span class="week-target">Target: <strong>~4,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb (with 10 lb pack)</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft · First weighted hike</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Sunrise Peak (with 10 lb pack)</div>
+            <div class="day-detail">3.8 mi RT · ~1,140 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: Camelback Echo Canyon</div>
+            <div class="day-detail">Sun: Wind Cave or Shaw Butte (recovery, 2–3 mi)</div>
+          </div>
+        </div>
+        <div class="week-note">10 lb pack feels significant on Tom's Thumb — that's the point. You'll likely carry 15–20 lb on the TMB. Get used to it early.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 7</span>
+          <span class="week-focus">First Piestewa Peak</span>
+          <span class="week-target">Target: <strong>~5,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft · (with pack)</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Piestewa Peak — first attempt</div>
+            <div class="day-detail">2.2 mi RT · ~1,200 ft · ~1.5 hrs · Note time</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend Long Hike</div>
+            <div class="day-trail">Camelback Echo — descent focus</div>
+            <div class="day-detail">Up and down, then go down again deliberately slowly. Knee conditioning.</div>
+          </div>
+        </div>
+        <div class="week-note">Piestewa has no switchbacks — it will feel different from Tom's Thumb even though the gradient numbers are similar. Good to experience both.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 8</span>
+          <span class="week-focus">First Siphon Draw — the big milestone</span>
+          <span class="week-target">Target: <strong>~5,800 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Piestewa Peak</div>
+            <div class="day-detail">2.2 mi RT · ~1,200 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Tom's Thumb (with pack)</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: Siphon Draw → Flatiron (full)</div>
+            <div class="day-detail">~5.6 mi RT · ~2,800 ft · 5–6 hrs · Start by 5:30 am<br>Sun: Wind Cave or 3–4 mi easy walk</div>
+          </div>
+        </div>
+        <div class="week-note">Start Siphon Draw as early as possible — this is a long, exposed hike. Bring 3+ liters of water. Note your total time for comparison in Week 13.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block p3" id="phase3">
+    <div class="phase-block-header">
+      <h2>Phase 3: Intensity (Weeks 9–12)</h2>
+      <div class="phase-desc">
+        <span>Goal: 6,000–8,000 ft/week</span>
+        <span>4 hikes/week</span>
+        <span>Focus: Multi-summit days, regular back-to-backs, full TMB pack weight</span>
+      </div>
+    </div>
+    <div class="phase-goals">
+      <span><strong>Pack weight</strong> Increase to 15–20 lb — your actual TMB pack weight — by Week 10</span>
+      <span><strong>Back-to-backs</strong> Every weekend is a back-to-back pair. Sunday is always on tired legs.</span>
+      <span><strong>Gear audit</strong> Everything should be dialed in by Week 11 — no new gear on the TMB</span>
+      <span><strong>Multi-trail days</strong> Drive between two trailheads in one day to build time-on-feet endurance</span>
+    </div>
+    <div class="weeks-grid">
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 9</span>
+          <span class="week-focus">First multi-trail day</span>
+          <span class="week-target">Target: <strong>~6,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb + Sunrise Peak</div>
+            <div class="day-detail">Same day · ~2,400 ft combined · Drive between trailheads · 4–5 hrs total</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Piestewa Peak</div>
+            <div class="day-detail">2.2 mi RT · ~1,200 ft</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: Siphon Draw → Flatiron (with full pack)</div>
+            <div class="day-detail">Sun: South Mountain easy section, 4–5 mi (~750 ft)</div>
+          </div>
+        </div>
+        <div class="week-note">Multi-trail days simulate the TMB's structure: different terrain and elevation profiles in a single long day. The drive between trailheads is your "valley floor" break.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 10</span>
+          <span class="week-focus">2× Piestewa in a session</span>
+          <span class="week-target">Target: <strong>~6,800 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Piestewa Peak × 2</div>
+            <div class="day-detail">Two complete round trips · ~2,400 ft · ~3 hrs · Stage 2 simulation</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Camelback Echo Canyon</div>
+            <div class="day-detail">2.6 mi RT · ~1,490 ft · with pack</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: South Mountain long (10–12 mi)</div>
+            <div class="day-detail">~1,800 ft · Endurance day<br>Sun: Tom's Thumb — tired legs</div>
+          </div>
+        </div>
+        <div class="week-note">The second Piestewa lap will feel very different from the first. That sensation — heavy legs continuing to climb — is exactly what the TMB demands on Days 8–11.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 11</span>
+          <span class="week-focus">First full back-to-back pair</span>
+          <span class="week-target">Target: <strong>~7,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb + Wind Cave</div>
+            <div class="day-detail">Same day, different parks · ~2,100 ft combined</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Camelback Echo — descent focus</div>
+            <div class="day-detail">Up once, controlled descent twice · Knee conditioning</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — full back-to-back</div>
+            <div class="day-trail">Sat: Siphon Draw → Flatiron (full pack)</div>
+            <div class="day-detail">Sun: Tom's Thumb + Sunrise Peak (still with pack — tired legs test)</div>
+          </div>
+        </div>
+        <div class="week-note">This is the hardest weekend of Phase 3. Saturday's Siphon Draw plus Sunday's double summit on tired legs simulates two consecutive hard TMB days. How you feel Sunday afternoon tells you a lot about your readiness.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 12</span>
+          <span class="week-focus">Cholla + Echo same day</span>
+          <span class="week-target">Target: <strong>~8,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Piestewa Peak × 2 (with pack)</div>
+            <div class="day-detail">~2,400 ft · Benchmark — compare to Week 10 time</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Camelback: Cholla up + Echo down</div>
+            <div class="day-detail">Two Camelback trails in sequence · ~2,000 ft gain + descent · ~3 hrs</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: Siphon Draw (with bonus extension if energy allows)</div>
+            <div class="day-detail">Sun: South Mountain easy (5–6 mi) · active recovery</div>
+          </div>
+        </div>
+        <div class="week-note">Cholla up and Echo down in one session gives you ~2,000 ft of gain and a technical descent — good Stage 1 / Stage 11 simulation. Note how the descent feels after the climb.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-block p4" id="phase4">
+    <div class="phase-block-header">
+      <h2>Phase 4: Peak &amp; Taper (Weeks 13–16)</h2>
+      <div class="phase-desc">
+        <span>Weeks 13–14: highest volume</span>
+        <span>Week 15: 50% volume cut</span>
+        <span>Week 16: Near-rest — arrive fresh, not tired</span>
+      </div>
+    </div>
+    <div class="phase-goals">
+      <span><strong>Trust the taper</strong> Cutting volume feels wrong. Do it anyway — your legs need to absorb 12 weeks of training before the TMB.</span>
+      <span><strong>Final gear check</strong> Week 13: audit every piece of gear. Resolve any issues before Week 15.</span>
+      <span><strong>Logistics</strong> Week 14: confirm TMB bookings, travel, insurance. Mental load off.</span>
+    </div>
+    <div class="weeks-grid">
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 13</span>
+          <span class="week-focus">Peak volume begins — full gear audit</span>
+          <span class="week-target">Target: <strong>~7,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb (full TMB pack)</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft · Practice TMB pace</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Camelback Echo (full TMB pack)</div>
+            <div class="day-detail">2.6 mi RT · ~1,490 ft · Benchmark — compare to Week 6</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — 2 days</div>
+            <div class="day-trail">Sat: Siphon Draw → Flatiron (full pack) — benchmark</div>
+            <div class="day-detail">Compare to Week 8 time. Should be meaningfully faster.<br>Sun: Tom's Thumb (tired legs — with pack)</div>
+          </div>
+        </div>
+        <div class="week-note">Complete a full gear audit this week. Identify anything that needs replacing before the TMB — you have one more week to order gear before the taper begins.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 14</span>
+          <span class="week-focus">Highest volume week — the summit</span>
+          <span class="week-target">Target: <strong>~9,000 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Piestewa Peak × 2 (full pack)</div>
+            <div class="day-detail">~2,400 ft · Stage 2 simulation</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Camelback Echo × 2 (full pack)</div>
+            <div class="day-detail">Two laps · ~2,900 ft · Stage 10 simulation</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend — epic 2 days</div>
+            <div class="day-trail">Sat: Siphon Draw + Tom's Thumb (drive between)</div>
+            <div class="day-detail">~4,100 ft combined · 8+ hrs total · Biggest day of the plan<br>Sun: South Mountain, 8–10 mi · ~1,200 ft · active recovery</div>
+          </div>
+        </div>
+        <div class="week-note">This is deliberately your hardest week. If Saturday's combined effort (Siphon Draw + Tom's Thumb) doesn't break you, you're ready for the TMB. It will feel like too much — that's the point. The taper will handle recovery.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 15</span>
+          <span class="week-focus">Taper — 50% volume cut</span>
+          <span class="week-target">Target: <strong>~3,500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 1</div>
+            <div class="day-trail">Tom's Thumb (light pack only)</div>
+            <div class="day-detail">4 mi RT · ~1,300 ft · Comfortable pace — not a workout</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekday Hike 2</div>
+            <div class="day-trail">Wind Cave Trail</div>
+            <div class="day-detail">3 mi RT · ~850 ft · Easy effort</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend</div>
+            <div class="day-trail">Sat: Camelback — one summit only</div>
+            <div class="day-detail">No repeat, no pressure. Enjoy it.<br>Sun: Rest.</div>
+          </div>
+        </div>
+        <div class="week-note">The taper feels wrong. You'll want to keep training. Don't. Your legs are absorbing 14 weeks of adaptation — let them. Resist the urge to do "just one more" hard hike.</div>
+      </div>
+
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 16</span>
+          <span class="week-focus">Final taper — arrive fresh</span>
+          <span class="week-target">Target: <strong>~500 ft</strong></span>
+        </div>
+        <div class="week-body">
+          <div class="day-slot">
+            <div class="day-label">Early Week</div>
+            <div class="day-trail">Short easy walk — 2–3 miles flat</div>
+            <div class="day-detail">Keep the legs moving, no elevation</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Mid Week</div>
+            <div class="day-trail">Rest or gentle 30-min walk</div>
+            <div class="day-detail">Pack your bag. Walk around with it on for 30 min.</div>
+          </div>
+          <div class="day-slot">
+            <div class="day-label">Weekend</div>
+            <div class="day-trail">Travel / final preparation</div>
+            <div class="day-detail">You're ready.</div>
+          </div>
+        </div>
+        <div class="week-note">The fitness you built in Weeks 1–14 does not disappear in Week 16. Your body will feel sluggish from the taper — that is normal. The legs you'll have on Day 1 of the TMB will be the strongest and freshest of the entire plan.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GEAR TIMELINE -->
+  <h2 class="section-heading" id="gear">Gear Break-In Timeline</h2>
+  <div class="gear-timeline">
+    <div class="gear-header">What to Have Ready and When</div>
+    <div class="gear-timeline-body">
+      <div class="gear-item">
+        <span class="gear-week">Week 1</span>
+        <span>Hiking boots on every hike — new or recently purchased. No blister surprises on the TMB. Resolve hot spots now.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 2–3</span>
+        <span>Try hiking poles. Decide whether you'll use them on the TMB. The descents on Stages 6, 9, 11 are where poles earn their weight.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 4–5</span>
+        <span>Finalize your hiking socks and insoles. If you're going to change them, change now — not the week before the TMB.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 6</span>
+        <span>Add 10 lb pack weight — use your actual TMB daypack loaded with the gear you'll carry each day (water, layers, snacks, first aid).</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 9–10</span>
+        <span>Increase to 15–20 lb — your realistic TMB carry weight including layers for alpine weather, full water, and lunch.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 11–12</span>
+        <span>All gear should be dialed in. No experimental items after this point. Test your rain gear and gaiters on a wet or early-morning hike.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 13</span>
+        <span>Full gear audit. List anything that needs replacing. Last chance to order replacements with time to break them in.</span>
+      </div>
+      <div class="gear-item">
+        <span class="gear-week">Week 16</span>
+        <span>Pack your TMB bag and walk around the neighborhood with it for 30 minutes. Confirm weight and fit feel right before you board the plane.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTENDING THE PLAN -->
+  <div class="extend-box" id="extending">
+    <h2>Extending to 20 or 24 Weeks</h2>
+    <p>This plan is built for a moderately active person with some hiking experience. If you want more time — either because you're building from a less active base, or because your TMB date is further out — add weeks to <strong>Phase 1</strong> and <strong>Phase 2</strong> before the intensity ramps up:</p>
+    <ul>
+      <li><strong>20-week plan (add 4 weeks):</strong> Repeat Weeks 2 and 3, then repeat Weeks 6 and 7. Everything else stays the same. The extra weeks solidify your aerobic base before you start pushing volume.</li>
+      <li><strong>24-week plan (add 8 weeks):</strong> Add two weeks each to Phases 1, 2, and 3. Phase 1 weeks can be very easy — the goal is building the trail habit and boot break-in, not fitness. Phase 2 extra weeks can be used to add a fifth trail to your rotation. Phase 3 extra weeks can include a multi-day camping trip or a drive to higher elevation (Flagstaff, ~7,000 ft) for altitude exposure.</li>
+      <li><strong>Altitude prep (bonus):</strong> If your TMB is more than 6 weeks away after Week 14, consider a weekend trip to Flagstaff (Humphreys Peak trail, ~10,000 ft) for a taste of real altitude. This won't fully acclimatize you but it's informative — you'll know how your body responds to thin air.</li>
+    </ul>
+  </div>
+
+  <div class="callout heat">
+    <h3>Phoenix Heat — Seasonal Training Adjustments</h3>
+    <p><strong>October–April:</strong> Ideal training conditions, flexible start times.<br>
+    <strong>May–June:</strong> Start Camelback and Piestewa before 7:00 am. Siphon Draw before 6:00 am. Carry 1 liter per hour minimum.<br>
+    <strong>July–September:</strong> Start Camelback/Piestewa by 5:30–6:00 am. Monsoon season begins mid-July — watch for afternoon lightning at elevation and flash floods in canyons. Siphon Draw can be hiked slightly later due to higher elevation (~5,000 ft) but still demands very early starts.<br>
+    <strong>Year-round:</strong> Electrolytes matter more in the desert than in the Alps. Train with the same hydration products you'll use on the TMB.</p>
+  </div>
+
+  <div class="sources">
+    <em>Trail data from AllTrails, HikeArizona, GoHikeAz, Arizona Highways, and park service sources. TMB stage data from TMB-Stages-and-Alternates document in this folder. Training structure based on standard progressive overload principles for multi-day alpine hiking preparation.</em>
+  </div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoenix Training Trails — TMB Preparation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2c2c2c;
+      background: #f7f5f0;
+    }
+
+    header {
+      background: #2d4a2d;
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #b8d4b8;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    header .subtitle span::before { content: "▸ "; opacity: 0.6; }
+
+    nav {
+      background: #3d5c3d;
+      padding: 0.6rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+    }
+    nav a {
+      color: #c8e0c8;
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      padding: 0.2rem 0;
+    }
+    nav a:hover { color: #fff; }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    h2.section-heading {
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: #2d4a2d;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #c8d8c8;
+    }
+
+    /* ---- Intro box ---- */
+    .intro-box {
+      background: #fff;
+      border-left: 4px solid #2d4a2d;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .intro-box h2 {
+      font-size: 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #2d4a2d;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+    }
+    .intro-box p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .intro-box p:last-child { margin-bottom: 0; }
+
+    /* ---- Gradient reference table ---- */
+    .gradient-ref {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .gradient-ref-header {
+      background: #4a6a4a;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- Trail cards ---- */
+    .trail {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .trail-header {
+      background: #2d4a2d;
+      color: #fff;
+      padding: 1rem 1.5rem 0.9rem;
+    }
+    .trail-header h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      letter-spacing: 0.01em;
+    }
+    .trail-header .trail-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #b8d4b8;
+      margin-top: 0.3rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .trail-header.cornerstone { background: #1a3a1a; }
+    .trail-header.cornerstone::before {
+      content: "★ CORNERSTONE TRAIL";
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #ffd060;
+      margin-bottom: 0.35rem;
+    }
+
+    .trail-body { padding: 1.25rem 1.5rem; }
+
+    .stats-bar {
+      background: #f0f4f0;
+      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.88rem;
+      color: #2d4a2d;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .stats-bar .stat { display: flex; flex-direction: column; }
+    .stats-bar .stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; font-weight: 700; }
+    .stats-bar .stat-val { font-weight: 700; color: #2d4a2d; font-size: 0.95rem; }
+    .stats-bar .stat-val.steep { color: #a02020; }
+
+    .character-note {
+      background: #fdf8f2;
+      border-left: 3px solid #c8860a;
+      padding: 0.75rem 1rem;
+      font-size: 0.93rem;
+      margin-bottom: 1.1rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .character-note strong { color: #7a4f00; }
+
+    .analog-box {
+      background: #eef4ee;
+      border-radius: 6px;
+      padding: 0.65rem 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.88rem;
+      color: #1a3a1a;
+      margin-bottom: 0.75rem;
+    }
+    .analog-box .label {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.72rem;
+      color: #3d6c3d;
+      margin-bottom: 0.2rem;
+    }
+
+    .heat-note {
+      font-size: 0.85rem;
+      color: #8a3a00;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* ---- Tables ---- */
+    table { width: 100%; border-collapse: collapse; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88rem; margin-bottom: 1.25rem; }
+    th { background: #e8ede8; color: #2d4a2d; text-align: left; padding: 0.5rem 0.75rem; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafafa; }
+    .gain { color: #2d7a2d; font-weight: 600; }
+    .grade-flat   { color: #5a9a5a; font-weight: 600; }
+    .grade-mod    { color: #7a7a30; font-weight: 600; }
+    .grade-stern  { color: #b06020; font-weight: 600; }
+    .grade-very   { color: #a02020; font-weight: 600; }
+    .grade-extreme { color: #700000; font-weight: 700; }
+    td.corner { font-weight: 700; color: #1a3a1a; }
+    td.stage-ref { font-style: italic; color: #444; font-size: 0.84rem; }
+
+    /* ---- Cornerstone section ---- */
+    .cornerstone-trio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .cs-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .cs-card-header {
+      background: #1a3a1a;
+      color: #ffd060;
+      padding: 0.65rem 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .cs-card-body {
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+    }
+    .cs-card-body strong { display: block; font-size: 1rem; color: #2d4a2d; margin-bottom: 0.3rem; }
+    .cs-card-body .cs-stats {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .cs-card-body p { font-size: 0.88rem; }
+
+    /* ---- Heat management ---- */
+    .heat-section {
+      background: #fff8ee;
+      border: 1px solid #e8c87a;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .heat-section h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a4f00;
+      margin-bottom: 0.75rem;
+    }
+    .heat-section ul { padding-left: 1.2rem; font-size: 0.93rem; }
+    .heat-section li { margin-bottom: 0.4rem; }
+
+    /* ---- Sources ---- */
+    .sources {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Phoenix Metro Training Trails</h1>
+  <p style="color:#b8d4b8; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:0.95rem; margin-top:0.4rem;">Tour du Mont Blanc Preparation — Gradient-Matched Hikes</p>
+  <div class="subtitle">
+    <span>Phoenix, Arizona metro area</span>
+    <span>Matched to TMB stage gradients</span>
+    <span>Altitude: 1,400–5,000 ft</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#intro">Overview</a>
+  <a href="#cornerstone">Cornerstone Trails</a>
+  <a href="#siphon">Siphon Draw</a>
+  <a href="#echo">Echo Canyon</a>
+  <a href="#piestewa">Piestewa Peak</a>
+  <a href="#cholla">Cholla Trail</a>
+  <a href="#toms">Tom's Thumb</a>
+  <a href="#sunrise">Sunrise Peak</a>
+  <a href="#windcave">Wind Cave</a>
+  <a href="#southmtn">South Mountain</a>
+  <a href="#comparison">Comparison Tables</a>
+  <a href="#heat">Heat Management</a>
+</nav>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-box" id="intro">
+    <h2>How Phoenix Compares to the Alps</h2>
+    <p>The TMB's actual col-climbing sections (stripped of flat valley approaches) run <strong>565–850 ft/mi for stretches of 2.5–5+ miles.</strong> Phoenix's hard trails hit that same steepness — but only for 1.3–3 miles at a time. Phoenix training rewards <strong>multiple laps and combined-trail days</strong> over any single out-and-back.</p>
+    <p>The raw altitude of the TMB (cols at 7,000–8,700 ft) cannot be replicated in the Phoenix metro. The highest trailhead here is ~2,800 ft. Plan for separate altitude acclimatization if possible before the TMB. What Phoenix <em>can</em> train is gradient tolerance, leg strength, and descent conditioning.</p>
+  </div>
+
+  <!-- GRADIENT REFERENCE -->
+  <div class="gradient-ref" id="gradient-ref">
+    <div class="gradient-ref-header">TMB Gradient Reference (from Stages &amp; Alternates document)</div>
+    <div style="padding: 0.75rem 1rem 0.25rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Avg gain/mi (full stage)</th>
+            <th>What it feels like</th>
+            <th>TMB stages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Recovery</td><td class="grade-flat">Under 150 ft/mi</td><td>Mostly flat, rolling valley</td><td>Stage 4, 7</td></tr>
+          <tr><td>Moderate</td><td class="grade-mod">150–250 ft/mi</td><td>Real climbing mixed with descents</td><td>Stage 1, 6, 8, 11</td></tr>
+          <tr><td>Strenuous</td><td class="grade-stern">250–400 ft/mi</td><td>Sustained effort, significant cols</td><td>Stage 2, 3, 5</td></tr>
+          <tr><td>Very strenuous</td><td class="grade-very">400+ ft/mi</td><td>Concentrated steep climbing</td><td>Stage 9, 10</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem; color:#555; padding-bottom:0.75rem;">The stage averages above include flat valley sections. The concentrated col ascents run <strong>600–800 ft/mi</strong> on the actual climbing portion.</p>
+    </div>
+  </div>
+
+  <!-- CORNERSTONE TRIO -->
+  <h2 class="section-heading" id="cornerstone">Three Cornerstone Training Hikes</h2>
+  <div class="cornerstone-trio">
+    <div class="cs-card">
+      <div class="cs-card-header">★ Monthly Benchmark</div>
+      <div class="cs-card-body">
+        <strong>Siphon Draw → The Flatiron</strong>
+        <div class="cs-stats">2.8 mi one way &nbsp;|&nbsp; ~2,800–3,100 ft gain &nbsp;|&nbsp; 5–6 hrs RT</div>
+        <p>The only Phoenix-area trail approximating alpine col distance and character. Do monthly to measure progress. Start by 5:00 am from May onward.</p>
+      </div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-card-header">★ Weekly Staple</div>
+      <div class="cs-card-body">
+        <strong>Tom's Thumb</strong>
+        <div class="cs-stats">2.0 mi one way &nbsp;|&nbsp; ~1,200–1,400 ft gain &nbsp;|&nbsp; ~2.5 hrs RT</div>
+        <p>Gradient lands squarely in the TMB col range (600–700 ft/mi). Feels most like alpine hiking. Add pack weight progressively starting in week 6.</p>
+      </div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-card-header">★ Monthly Long Day</div>
+      <div class="cs-card-body">
+        <strong>South Mountain — National Trail</strong>
+        <div class="cs-stats">15.4 mi point-to-point &nbsp;|&nbsp; ~2,273 ft gain &nbsp;|&nbsp; 4–5+ hrs</div>
+        <p>Builds the sustained endurance needed to walk 8–12 miles every day for 11 consecutive days. Do 8–12 miles, not necessarily the full traverse.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE TRAILS -->
+  <h2 class="section-heading">The Trails</h2>
+
+  <!-- Siphon Draw -->
+  <div class="trail" id="siphon">
+    <div class="trail-header cornerstone">
+      <h2>Siphon Draw → The Flatiron</h2>
+      <div class="trail-meta">
+        <span>Lost Dutchman State Park, Apache Junction</span>
+        <span>~45 min east of central Phoenix</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">~2.8 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~2,800–3,100 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~1,000 ft/mi avg</span></div>
+        <div class="stat"><span class="stat-label">Elevation</span><span class="stat-val">2,060 → 4,861 ft</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">5–6 hours</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> The first 2 miles follow a maintained trail at roughly 400 ft/mi. The final 0.8 miles to the Flatiron is unmaintained, involves boulder scrambling, and gains the majority of elevation at an extreme pitch. Trail is marked to Siphon Draw; above that point navigation judgment is required.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog</div>
+        The approach section (first 2 miles at ~400 ft/mi) simulates <strong>Stage 9</strong> (Col de Balme, 433 ft/mi avg) and the <strong>Stage 3</strong> col climb (~738 ft/mi for 4.3 miles). The full route is the closest single-trail simulation of a hard TMB col day available in the Phoenix metro.
+      </div>
+      <p class="heat-note">Heat note: Start by 5:00–5:30 am from May onward. Higher elevation makes this marginally cooler than Camelback/Piestewa, but still dangerous in summer. Bring minimum 3 liters of water.</p>
+    </div>
+  </div>
+
+  <!-- Echo Canyon -->
+  <div class="trail" id="echo">
+    <div class="trail-header">
+      <h2>Camelback Mountain — Echo Canyon Trail</h2>
+      <div class="trail-meta">
+        <span>Phoenix Mountains / Paradise Valley</span>
+        <span>Central Phoenix</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">1.3 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~1,490 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~1,120 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Elevation</span><span class="stat-val">1,362 → 2,704 ft</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">1.5–2.5 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> Railroad ties and steel rails in the first third; exposed rock scramble in the last half-mile. No flat relief — relentlessly steep throughout. Parking fills by 6:30 am on weekends.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog — Climbing</div>
+        Steeper than any single TMB col. Best for <strong>Stage 10</strong> preparation (Tré le Champ → Flégère, 481 ft/mi, iron ladders). Do two complete laps (down and back up) to reach Stage 10's ~2,400 ft of total gain.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog — Descent Training</div>
+        The Echo Canyon descent (~1,120 ft/mi down) mirrors the "never-ending, jarring" <strong>Stage 11</strong> descent (845 ft/mi) and Stage 6's knee-testing Swiss descent. Essential conditioning for protecting your knees over 11 consecutive days.
+      </div>
+      <p class="heat-note">Heat note: Start by 6:00 am in summer. Full southern exposure — dangerous by 9 am in June–September.</p>
+    </div>
+  </div>
+
+  <!-- Piestewa Peak -->
+  <div class="trail" id="piestewa">
+    <div class="trail-header">
+      <h2>Piestewa Peak — Summit Trail #300</h2>
+      <div class="trail-meta">
+        <span>Phoenix Mountains Preserve</span>
+        <span>Central Phoenix</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">1.2 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~1,200 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~1,000 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Elevation</span><span class="stat-val">~1,400 → 2,610 ft</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">1–2 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> Relentless with no switchbacks and no flat sections anywhere on the trail. The most consistently steep gradient in Phoenix. Foot traffic only (no bikes or dogs). Single-file sections near the top.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog — Multi-Lap Training</div>
+        The Col du Bonhomme / Croix du Bonhomme climbs in <strong>Stage 2</strong> (~690 ft/mi for 5.6 miles sustained) set the benchmark for sustained alpine climbing. Piestewa is steeper but much shorter — doing <strong>3 complete round trips</strong> in a single session matches Stage 2's ~3,900 ft of gain in the climbing sections. Brutal but highly effective interval training.
+      </div>
+      <p class="heat-note">Heat note: Start by 6:00 am in summer. Exposed rock absorbs significant heat by mid-morning.</p>
+    </div>
+  </div>
+
+  <!-- Cholla -->
+  <div class="trail" id="cholla">
+    <div class="trail-header">
+      <h2>Camelback Mountain — Cholla Trail</h2>
+      <div class="trail-meta">
+        <span>Scottsdale / Paradise Valley</span>
+        <span>East approach to Camelback summit</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">~1.5 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~1,350 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~918 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">2–3 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> More gradual than Echo Canyon for the first mile, then technical scrambling near the summit. Fully exposed with minimal shade. A useful introduction to Camelback's steepness before attempting Echo Canyon.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog</div>
+        Stage 1's Col de Voza climb (~850 ft/mi for 2.5 miles). Cholla is steeper but shorter. Combine Cholla and Echo in a single day — up Cholla, down Echo — for a well-rounded Camelback session.
+      </div>
+      <p class="heat-note">Heat note: Same as Echo Canyon — fully exposed, start by 6:00 am in summer.</p>
+    </div>
+  </div>
+
+  <!-- Tom's Thumb -->
+  <div class="trail" id="toms">
+    <div class="trail-header cornerstone">
+      <h2>Tom's Thumb Trail</h2>
+      <div class="trail-meta">
+        <span>McDowell Sonoran Preserve, Scottsdale</span>
+        <span>Trailhead at ~2,820 ft — highest in Phoenix metro</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">2.0 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~1,200–1,400 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~609–705 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Elevation</span><span class="stat-val">2,820 → 3,848 ft</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">~2.5 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> A proper hiking trail — sustained, consistent climb through desert and granite terrain, without technical scrambling. The effort profile most closely resembles walking a real alpine trail. The granite thumb formation is the obvious landmark at the summit.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog — Best Phoenix Match for Col Climbing</div>
+        This is the best gradient match for the moderate col sections: <strong>Stage 6's</strong> Grand Col Ferret climb (~672 ft/mi for 2.5 miles) and <strong>Stage 8's</strong> Alp Bovine climb (~565 ft/mi for 3.1 miles). The gradient, trail character, and sustained effort most closely simulate what you'll do on the TMB. Make this your primary weekly training trail.
+      </div>
+      <p class="heat-note">Heat note: Highest elevation in the metro — somewhat cooler than Camelback/Piestewa. Start by 6:30 am in summer.</p>
+    </div>
+  </div>
+
+  <!-- Sunrise Peak -->
+  <div class="trail" id="sunrise">
+    <div class="trail-header">
+      <h2>Sunrise Peak</h2>
+      <div class="trail-meta">
+        <span>McDowell Mountain Regional Park, Fountain Hills</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">~1.9 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~1,140 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val steep">~600 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Elevation</span><span class="stat-val">~1,960 → 3,069 ft</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">~2 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> Sustained desert climb on a proper trail. Similar family to Tom's Thumb — consistent gradient without scrambling. Good views of the McDowell range and surrounding valley.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog</div>
+        Stage 8's Alp Bovine climb (~565 ft/mi). Combine Sunrise Peak + Tom's Thumb on the same day for a <strong>Stage 3 simulation</strong> — the Col de la Seigne is 3,173 ft over 4.3 miles, and these two together give ~2,300–2,500 ft in the same gradient range.
+      </div>
+    </div>
+  </div>
+
+  <!-- Wind Cave -->
+  <div class="trail" id="windcave">
+    <div class="trail-header">
+      <h2>Wind Cave Trail — Usery Mountain Regional Park</h2>
+      <div class="trail-meta">
+        <span>Mesa / East Valley</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Distance</span><span class="stat-val">~1.5 mi one way</span></div>
+        <div class="stat"><span class="stat-label">Gain</span><span class="stat-val gain">~800–1,000 ft</span></div>
+        <div class="stat"><span class="stat-label">Gradient (one way)</span><span class="stat-val">~535–667 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Round trip time</span><span class="stat-val">1.5–2 hrs</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> Short, steady climb on a maintained trail. Less crowded than the Camelback/Piestewa corridor. Good option for training variety. Works well combined with other trails in the east Valley.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog</div>
+        A moderately hard day, closest to <strong>Stage 5</strong> (Courmayeur → Bonatti, 350–400 ft/mi sustained throughout). Good for a training day when legs are tired from the previous session.
+      </div>
+    </div>
+  </div>
+
+  <!-- South Mountain -->
+  <div class="trail" id="southmtn">
+    <div class="trail-header cornerstone">
+      <h2>South Mountain — National Trail</h2>
+      <div class="trail-meta">
+        <span>South Mountain Park, South Phoenix</span>
+        <span>15.4 miles point-to-point — do a section, not full traverse</span>
+      </div>
+    </div>
+    <div class="trail-body">
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Full distance</span><span class="stat-val">15.4 mi point-to-point</span></div>
+        <div class="stat"><span class="stat-label">Full gain</span><span class="stat-val gain">~2,273 ft</span></div>
+        <div class="stat"><span class="stat-label">Avg gradient</span><span class="stat-val">~148 ft/mi</span></div>
+        <div class="stat"><span class="stat-label">Recommended section</span><span class="stat-val">8–12 miles</span></div>
+      </div>
+      <div class="character-note">
+        <strong>Character:</strong> Long ridgeline trail with rolling terrain — moderate ups and downs throughout. The gradient average is low, but the distance demands sustained effort. Not about steepness; about time on feet and consecutive-day conditioning.
+      </div>
+      <div class="analog-box">
+        <div class="label">TMB Analog</div>
+        <strong>Stage 7</strong> (La Fouly → Champex-Lac, 148 ft/mi — the TMB's recovery day) and the rolling moderate sections of <strong>Stage 11</strong>. The primary value here is <strong>distance endurance</strong>: building the base to walk 8–12 miles every day for 11 consecutive days.
+      </div>
+      <p class="heat-note">Heat note: Low elevation — among the hottest training options in summer. Start by 5:30 am in summer months.</p>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLES -->
+  <h2 class="section-heading" id="comparison">Comparison Tables</h2>
+
+  <div class="trail" style="margin-bottom:1.5rem;">
+    <div class="trail-header"><h2 style="font-size:1rem;">Phoenix Trails — Gradient Comparison</h2></div>
+    <div style="padding:0.75rem 1rem 0.25rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Trail</th>
+            <th>One-way gradient</th>
+            <th>Round-trip avg</th>
+            <th>TMB analog</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="corner">Camelback Echo Canyon</td><td class="grade-extreme">~1,120 ft/mi</td><td class="grade-very">~560 ft/mi</td><td class="stage-ref">Stage 10 (iron ladders, concentrated)</td></tr>
+          <tr><td class="corner">Piestewa Peak</td><td class="grade-extreme">~1,000 ft/mi</td><td class="grade-very">~545–577 ft/mi</td><td class="stage-ref">Stage 2 (multi-lap); Stage 9/10</td></tr>
+          <tr><td class="corner">Siphon Draw → Flatiron</td><td class="grade-very">~1,000 ft/mi avg</td><td class="grade-very">~560 ft/mi</td><td class="stage-ref">Stage 3 / 9 (best alpine sim)</td></tr>
+          <tr><td class="corner">Camelback Cholla</td><td class="grade-very">~918 ft/mi</td><td class="grade-stern">~466 ft/mi</td><td class="stage-ref">Stage 1 col</td></tr>
+          <tr><td class="corner">Tom's Thumb</td><td class="grade-very">~609–705 ft/mi</td><td class="grade-stern">~305–353 ft/mi</td><td class="stage-ref">Stage 6 / 8 col — best match</td></tr>
+          <tr><td class="corner">Sunrise Peak</td><td class="grade-stern">~600 ft/mi</td><td>—</td><td class="stage-ref">Stage 8 col</td></tr>
+          <tr><td class="corner">Wind Cave</td><td class="grade-stern">~535–667 ft/mi</td><td class="grade-mod">~253–346 ft/mi</td><td class="stage-ref">Stage 5</td></tr>
+          <tr><td class="corner">Shaw Butte</td><td class="grade-mod">~213–231 ft/mi</td><td class="grade-mod">~191–225 ft/mi</td><td class="stage-ref">Stage 1 overall avg</td></tr>
+          <tr><td class="corner">White Tank Mesquite Cyn</td><td class="grade-mod">~184–198 ft/mi</td><td class="grade-mod">~184–198 ft/mi</td><td class="stage-ref">Stage 8 overall avg</td></tr>
+          <tr><td class="corner">South Mountain Nat'l</td><td class="grade-flat">~148 ft/mi (rolling)</td><td class="grade-flat">~148 ft/mi</td><td class="stage-ref">Stage 7 (recovery day)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="trail" style="margin-bottom:2rem;">
+    <div class="trail-header"><h2 style="font-size:1rem;">TMB Stages → Best Phoenix Training Match</h2></div>
+    <div style="padding:0.75rem 1rem 0.25rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>TMB Stage</th>
+            <th>Avg gain/mi</th>
+            <th>Col climb actual</th>
+            <th>Best Phoenix match</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Stage 7 (easiest)</td><td class="grade-flat">148 ft/mi</td><td>No major col</td><td>South Mountain National Trail</td><td>Endurance day, 8–10 mi</td></tr>
+          <tr><td>Stage 4 (descent day)</td><td class="grade-flat">135 ft/mi avg</td><td>457 ft/mi descent</td><td>Echo Canyon up + down</td><td>Focus on the descent conditioning</td></tr>
+          <tr><td>Stage 1</td><td class="grade-mod">214 ft/mi</td><td>~850 ft/mi</td><td>Camelback Cholla</td><td>Gradient match on col section</td></tr>
+          <tr><td>Stage 8</td><td class="grade-mod">246 ft/mi</td><td>~565 ft/mi</td><td>Tom's Thumb</td><td>Best single-trail match</td></tr>
+          <tr><td>Stage 11</td><td class="grade-mod">239 ft/mi</td><td>~350 climb / 845 descent</td><td>Piestewa + descent focus</td><td>Train the knees going down</td></tr>
+          <tr><td>Stage 6</td><td class="grade-mod">237 ft/mi</td><td>~672 ft/mi + long descent</td><td>Tom's Thumb up + Echo descent</td><td>Two trails, one day</td></tr>
+          <tr><td>Stage 5</td><td class="grade-stern">376 ft/mi</td><td>~350–400 ft/mi sustained</td><td>Sunrise + Wind Cave same day</td><td>~2,200 ft combined</td></tr>
+          <tr><td>Stage 3</td><td class="grade-stern">354 ft/mi</td><td>~738 ft/mi, 4+ miles</td><td>Siphon Draw (trail section)</td><td>First 2 miles of Siphon Draw</td></tr>
+          <tr><td>Stage 2</td><td class="grade-stern">385 ft/mi</td><td>~690 ft/mi for 5.6 miles</td><td>3× Piestewa, or Siphon Draw full</td><td>Hardest to replicate locally</td></tr>
+          <tr><td>Stage 9</td><td class="grade-very">433 ft/mi</td><td>~667 ft/mi + steep descent</td><td>Siphon Draw full</td><td>Best single-day simulation</td></tr>
+          <tr><td>Stage 10</td><td class="grade-very">481 ft/mi</td><td>~550–600 ft/mi throughout</td><td>2× Echo Canyon laps</td><td>Short / steep / relentless</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- HEAT MANAGEMENT -->
+  <div class="heat-section" id="heat">
+    <h2>Phoenix Heat Management</h2>
+    <p style="font-size:0.93rem; margin-bottom:0.75rem;">The TMB is walked at altitude in cool alpine air. Phoenix trains your legs and lungs, not your heat tolerance. Manage training conditions deliberately.</p>
+    <ul>
+      <li><strong>October–April:</strong> Near-ideal conditions. Flexible start times for most trails.</li>
+      <li><strong>May–June:</strong> Hot and getting hotter. Start all exposed trails (Camelback, Piestewa, South Mountain) before 7:00 am. Siphon Draw before 6:00 am.</li>
+      <li><strong>July–September:</strong> Dangerous heat on lower trails. Start Camelback/Piestewa by 5:30–6:00 am maximum. Siphon Draw / Flatiron (higher elevation, ~5,000 ft) can start slightly later but still requires very early starts. <strong>Monsoon season begins mid-July</strong> — watch for afternoon lightning at elevation and flash flood risk in canyon drainages.</li>
+      <li><strong>Water:</strong> Carry 1 liter per hour as a minimum — desert dehydration is faster than alpine dehydration. Electrolytes matter more here than on the cool TMB; train with them.</li>
+      <li><strong>Gear:</strong> Sun protection (hat, sleeves, sunscreen) is as important as the right boots. Your TMB gear will be heavier than necessary for Phoenix — this is fine; train with it.</li>
+    </ul>
+  </div>
+
+  <div class="sources">
+    <em>TMB elevation data from TMB-Stages-and-Alternates document in this folder. Phoenix trail data from AllTrails, HikeArizona, GoHikeAz, Arizona Highways, and park service sources.</em>
+  </div>
+
+</main>
+</body>
+</html>
